@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sarkari Jobs</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #34495e;
+            --text-color: #333;
+            --background-color: #f4f4f4;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: var(--background-color);
+            color: var(--text-color);
+        }
+
+        .navbar-top {
+            background-color: var(--primary-color);
+            padding: 10px 0;
+        }
+
+        .navbar-top .navbar-brand {
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .navbar-middle {
+            background-color: var(--secondary-color);
+        }
+
+        .navbar-middle .nav-link {
+            color: white;
+            padding: 15px;
+            transition: background-color 0.3s;
+        }
+
+        .navbar-middle .nav-link:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .navbar-bottom {
+            background-color: var(--secondary-color);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 1000;
+            display: none;
+        }
+
+        .column-box {
+            height: 200px;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .column-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .result, .admit-card, .latest-jobs {
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .result h5, .admit-card h5, .latest-jobs h5 {
+            border-bottom: 2px solid white;
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .result ul, .admit-card ul, .latest-jobs ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .result li, .admit-card li, .latest-jobs li {
+            background-color: rgba(255, 255, 255, 0.1);
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .result li:hover, .admit-card li:hover, .latest-jobs li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .result a, .admit-card a, .latest-jobs a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 767.98px) {
+            .navbar-bottom {
+                display: flex;
+            }
+            .navbar-middle {
+                display: none;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .navbar-bottom {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Sarkari Jobs</a>
+        </div>
+    </nav>
+
+    <!-- Middle Navbar for PC Screens -->
+    <nav class="navbar navbar-expand-md navbar-dark navbar-middle">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMiddle">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMiddle">
+                <ul class="navbar-nav w-100 justify-content-around">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-home"></i> Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-id-card"></i> Admit Card</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-clipboard-check"></i> Result</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-book"></i> Syllabus</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i> Search</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fas fa-envelope"></i> Contact Us</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bottom Navbar for Mobile Screens -->
+    <nav class="navbar navbar-dark navbar-expand d-md-none navbar-bottom">
+        <ul class="navbar-nav w-100">
+            <li class="nav-item">
+                <a class="nav-link text-center" href="#"><i class="fas fa-briefcase"></i><br>Latest Jobs</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-center" href="#" data-toggle="modal" data-target="#searchModal"><i class="fas fa-search"></i><br>Search</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-center" href="#"><i class="fas fa-clipboard-check"></i><br>Result</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-center" href="#"><i class="fas fa-id-card"></i><br>Admit Card</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Main Body -->
+    <div class="container mt-4 mb-5">
+        <div class="row">
+            <div class="col-lg-3 col-md-6">
+                <div class="column-box" style="background-color: #3498db;">Latest Jobs</div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="column-box" style="background-color: #2ecc71;">Admit Cards</div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="column-box" style="background-color: #f39c12;">Results</div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="column-box" style="background-color: #9b59b6;">Syllabus</div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="column-box" style="background-color: #e74c3c;">Answer Keys</div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="column-box" style="background-color: #1abc9c;">Notifications</div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="column-box" style="background-color: #34495e;">Important Dates</div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="column-box" style="background-color: #d35400;">FAQs</div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-lg-4">
+                <div class="result">
+                    <h5>Latest Results</h5>
+                    <ul>
+                        <li><a href="#">UPSC Civil Services Result 2024</a></li>
+                        <li><a href="#">SSC CGL Tier II Result 2024</a></li>
+                        <li><a href="#">IBPS PO Final Result 2024</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="admit-card">
+                    <h5>Admit Cards</h5>
+                    <ul>
+                        <li><a href="#">RRB NTPC Admit Card 2024</a></li>
+                        <li><a href="#">NEET UG Admit Card 2024</a></li>
+                        <li><a href="#">SBI PO Admit Card 2024</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="latest-jobs">
+                    <h5>Latest Job Openings</h5>
+                    <ul>
+                        <li><a href="#">Indian Army Recruitment 2024</a></li>
+                        <li><a href="#">DRDO Scientist Recruitment 2024</a></li>
+                        <li><a href="#">ISRO Technical Assistant Recruitment 2024</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center">
+        <div class="container">
+            <p>&copy; 2024 Sarkari Jobs. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="searchModalLabel">Search Jobs</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="searchInput">Enter keywords</label>
+                            <input type="text" class="form-control" id="searchInput" placeholder="e.g. UPSC, Bank, SSC">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Search</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
