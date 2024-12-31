@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - main
-    paths:
+    paths-ignore:
       - 'readme.md'
       - 'helm/**'
 
@@ -81,6 +81,5 @@ jobs:
           git add helm/sarkari-naukari-chart/values.yaml
           git commit -m "Update tag in helm chart"
           git push
-
 
 
