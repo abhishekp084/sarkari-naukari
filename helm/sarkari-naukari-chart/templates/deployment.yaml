@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: sarkari-naukari
+  labels:
+    app: sarkari-naukari
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sarkari-naukari
+  template:
+    metadata:
+      labels:
+        app: sarkari-naukari
+    spec:
+      containers:
+      - name: sarkari-naukari
+        image: abhishekp084/sarkari-naukari:{{ .Values.image.tag }}
+        ports:
+        - containerPort: 8000
