@@ -6,7 +6,7 @@ on:
       - main
     paths-ignore:
       - 'readme.md'
-      - 'helm/**'
+#      - 'helm/**'
 
 jobs:
   build:
