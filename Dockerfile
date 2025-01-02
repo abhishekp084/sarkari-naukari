@@ -3,9 +3,13 @@ FROM golang:1.22 as base
 
 WORKDIR /app
 
+# Install bash and curl for debugging
+RUN apt-get update && apt-get install -y bash curl
+
 # Copy go.mod and go.sum for dependency resolution
 COPY go.mod go.sum ./
 
+# Download dependencies
 RUN go mod download
 
 # Copy application source code and templates
