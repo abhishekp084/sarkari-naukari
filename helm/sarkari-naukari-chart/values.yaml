@@ -8,7 +8,7 @@ image:
   repository: abhishekp084/sarkari-naukari
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
-  tag: "12582394802"
+  tag: "12705362285"
 
 ingress:
   enabled: false
